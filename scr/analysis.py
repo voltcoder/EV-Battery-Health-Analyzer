@@ -1,5 +1,4 @@
-import pandas as pd
-
-def load_data(file_path):
-    return pd.read_csv(file_path)
-
+def calculate_soh(df):
+    max_voltage = df["voltage"].max()
+    df["SOH (%)"] = (df["voltage"] / max_voltage) * 100
+    return df
